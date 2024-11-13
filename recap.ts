@@ -5,22 +5,16 @@ interface Persona {
     haFigli: boolean;
 }
 
-let me: Persona = { nome: "Fabio", eta: 39, haFigli: false};
+let me: Persona = { nome: "Fabio", eta: 39, haFigli: false };
 
 
 // ESEMPIO DI ESTENSIONE
-interface Persona {
-    nome: string;
-    eta: number;
-    haFigli: boolean
-}
-
 interface Lavoratore extends Persona {
     work: string;
 }
 
-let io: Lavoratore = { nome: "Fabio", eta: 40, haFigli: true, work: "Sviluppatore Web"};
-console.log(io)
+let io: Lavoratore = { nome: "Fabio", eta: 40, haFigli: true, work: "Sviluppatore Web" };
+console.log(io);
 
 
 // TYPE
@@ -42,15 +36,9 @@ console.log(LibroPreferito);
 
 
 // PARTIAL (UTILITY TYPES)
-interface Persona {
-    nome: string;
-    eta: number;
-    haFigli: boolean;
-}
-
 let mioNome: Partial<Persona> = { nome: "Fabio" };
-let anni: Partial<Persona> = {eta: 39};
-let figli: Partial<Persona> = {haFigli: false};
+let anni: Partial<Persona> = { eta: 39 };
+let figli: Partial<Persona> = { haFigli: false };
 
 // READ ONLY (UTILITY TYPES)
 interface Residenza {
@@ -66,15 +54,15 @@ let casaMia: Readonly<Residenza> = {
     regione: "Puglia",
     provincia: "BT",
     citta: "Bisceglie",
-    CAP: 76011,
-}
+    CAP: 76011
+};
 
 // PICK (UTILITY TYPES)
 interface TV {
     produttore: string;
     modello: number;
     risoluzione: string;
-    pannello: string
+    pannello: string;
 }
 
 let miaTv: Pick<TV, "produttore" | "risoluzione"> = { produttore: "Samsung", risoluzione: "1080p" };
@@ -83,13 +71,14 @@ let miaTv: Pick<TV, "produttore" | "risoluzione"> = { produttore: "Samsung", ris
 interface Car {
     produttore: string;
     modello: number;
-    tecnologia: string,
-} 
- let miaMacchina: Omit<Car, "tecnologia"> = {produttore: "Tesla", modello: 2023}
+    tecnologia: string;
+}
+
+let miaMacchina: Omit<Car, "tecnologia"> = { produttore: "Tesla", modello: 2023 };
 
 
- // CLASSI
- class Film {
+// CLASSI
+class Film {
     titolo: string;
     regia: string;
     anno: number;
@@ -98,27 +87,26 @@ interface Car {
     constructor(titolo: string, regia: string, anno: number, alCinema: boolean) {
         this.titolo = titolo;
         this.regia = regia;
-        this.anno = anno; 
+        this.anno = anno;
         this.alCinema = alCinema;
     }
 }
-let filmPreferito = new Film ("Nuovo cinema paradiso", "Giuseppe Tornatore", 1988, false);
+let filmPreferito = new Film("Nuovo cinema paradiso", "Giuseppe Tornatore", 1988, false);
 
 
 // FUNZIONE BMI
-function calcolaBMI(peso: number, altezza: number): number { 
-    return peso / (altezza * altezza); 
+function calcolaBMI(peso: number, altezza: number): number {
+    return peso / (altezza * altezza);
 }
 
-let peso: number = 70; 
-let altezza: number = 1.75; 
-let bmi = calcolaBMI(peso, altezza); 
+let peso: number = 70;
+let altezza: number = 1.75;
+let bmi = calcolaBMI(peso, altezza);
 
-if (bmi > 25) { 
-    console.log(`Sei in sovrappeso`); 
-} 
-else { 
-    console.log(`Il tuo peso è nella norma`); 
+if (bmi > 25) {
+    console.log(`Sei in sovrappeso`);
+} else {
+    console.log(`Il tuo peso è nella norma`);
 }
 
 
@@ -176,10 +164,10 @@ interface InfoFamiglia {
 }
 
 const Famiglia: Record<MembroFamiglia, InfoFamiglia> = {
-    Nicola: {ruolo: "padre", anni: 67},
-    Anna: {ruolo: "madre", anni: 74},
-    Angelo: {ruolo: "figlio", anni: 43},
-    Fabio: {ruolo: "figlio", anni: 39},
-}
+    Nicola: { ruolo: "padre", anni: 67 },
+    Anna: { ruolo: "madre", anni: 74 },
+    Angelo: { ruolo: "figlio", anni: 43 },
+    Fabio: { ruolo: "figlio", anni: 39 }
+};
 
-console.log(Famiglia.Fabio)
+console.log(Famiglia.Fabio);
